@@ -1,5 +1,18 @@
 'use strict';
 
+var mainHost = "http://173.192.63.94:8080/pharmacy/api/v1";
+//var mainHost = "http://192.168.1.101:8080/web/gpstracker/v1";
+
+var host = {
+  brand: mainHost + '/brand'
+};
+
+
+var headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+};
+
 /**
  * @ngdoc overview
  * @name userAppApp
