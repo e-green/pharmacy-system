@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="styles/jquery.datetimepicker.css">
   <link rel="stylesheet" href="styles/select2.css">
   <link rel="stylesheet" href="styles/select2-bootstrap.css">
+
+
+  <script src="https://rawgit.com/jpillora/xdomain/gh-pages/dist/0.6/xdomain.js"
+          slave="http://173.192.63.94:8080/web/api/proxy"></script>
   <!-- endbuild -->
 </head>
 <body ng-app="userAppApp">
@@ -45,11 +49,12 @@
 
         <ul class="nav navbar-nav">
           <li class="active"><a href="#/">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
+          <!--<li><a ng-href="#/about">About</a></li>-->
           <li><a ng-href="#/add_user">Add Customer</a></li>
           <li><a ng-href="#/addBrand">Add Brand</a></li>
           <li><a ng-href="#/addMeasurement">Add Measurement</a></li>
           <li><a ng-href="#/addBatch">Add Batch</a></li>
+          <li><a ng-href="#/addItem">Add Item</a></li>
         </ul>
       </div>
     </div>
@@ -105,6 +110,10 @@
 <script src="scripts/controllers/addbrand.js"></script>
 <script src="scripts/controllers/addmeasurement.js"></script>
 <script src="scripts/controllers/addbatch.js"></script>
+<script src="scripts/services/brandservice.js"></script>
+<script src="scripts/services/measurementservice.js"></script>
+<script src="scripts/controllers/additem.js"></script>
+<script src="scripts/services/itemservice.js"></script>
 <!-- endbuild -->
 
 <script src="lib/js/notify.js"></script>
