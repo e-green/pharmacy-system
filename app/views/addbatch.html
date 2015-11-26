@@ -26,7 +26,8 @@
         </div>
         <div class="col-lg-7">
           <input id="datetimepicker" class="form-control initialError" type="text"
-                 placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="dateTo" notify-directive form="form" error-message="'Date here'" >
+                 placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="batch.datetime" notify-directive
+                 form="form" error-message="'Date here'">
 
         </div>
       </div>
@@ -41,8 +42,8 @@
         <!--</div>-->
 
         <div class="col-lg-3">
-            <label for="item" form="form" error-message="'Date here'"
-                   pop-place="'top'">Item Name</label>
+          <label for="item" form="form" error-message="'Date here'"
+                 pop-place="'top'">Item Name</label>
 
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
                   id="nameBtn" notify-directive form="form" error-message="'Item name here'"
@@ -50,19 +51,14 @@
             i
           </button>
 
-          <select class="js-example-basic-single form-control" >
-            <option value="AL">Alabama</option>
-            <option value="WY">Wyoming</option>
-            <option value="WY">Wyoming</option>
-            <option value="WY">Wyoming</option>
-            <option value="WY">Wyoming</option>
+          <select class="js-example-basic-single form-control" id="allItem" ng-model="batch.itemName">
+            <option value="">Select Item</option>
+            <option ng-repeat="data in allItems" value="{{data.itemId}}">{{data.itemName}}</option>
           </select>
           <script>
             $(document).ready(function () {
               $(".js-example-basic-single").select2();
             });
-
-
           </script>
         </div>
         <div class="col-lg-3">
@@ -73,7 +69,7 @@
             i
           </button>
           <input style="margin-left: 10px;" id="qty" type="text" class="form-control initialError"
-                 placeholder="qty" ng-model="user.initials" notify-directive form="form"
+                 placeholder="qty" ng-model="batch.qty" notify-directive form="form"
                  error-message="'Enter valid quantity'" pop-place="'right'"
                  ng-keypress="activeTitleSelect($event)">
         </div>
@@ -85,7 +81,7 @@
             i
           </button>
           <input id="datetimepicker2" class="form-control initialError" type="text"
-                 placeholder="Click to Get Date " ng-model="dateFrom" notify-directive form="form"
+                 placeholder="Click to Get Date " ng-model="batch.expdate" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'">
         </div>
 
@@ -101,7 +97,7 @@
             i
           </button>
           <input id="buyingPrice" type="text" class="form-control initialError"
-                 placeholder="Expire Date" ng-model="user.initials" notify-directive form="form"
+                 placeholder="Expire Date" ng-model="batch.buyingPrice" notify-directive form="form"
                  error-message="'Enter valid buying price'" pop-place="'right'"
                  ng-keypress="activeTitleSelect($event)">
         </div>
@@ -113,7 +109,7 @@
             i
           </button>
           <input id="sellingPrice" type="text" class="form-control initialError"
-                 placeholder="Selling Price" ng-model="user.initials" notify-directive form="form"
+                 placeholder="Selling Price" ng-model="batch.sellingPrice" notify-directive form="form"
                  error-message="'Enter valid selling price'" pop-place="'right'"
                  ng-keypress="activeTitleSelect($event)">
         </div>
@@ -125,7 +121,7 @@
                 class="btn btn-info" ng-click="openReviewModalInAddBatch()">Review
         </button>
         <button id="saveBtn" data-toggle="tooltip" title="Save data without reviewing data at your own risk."
-                class="btn btn-primary" ng-click="saveUser()">Save
+                class="btn btn-primary" ng-click="saveBatch()">Save
         </button>
       </div>
     </div>
@@ -147,7 +143,7 @@
 
         </div>
         <div class="col-lg-10">
-          <input id="datetimepickerModel" class="form-control initialError" type="text"
+          <input id="datetimepickerModel" class="form-control initialError" type="text" ng-model="batch.datetime"
                  placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="dateTo">
 
         </div>
@@ -167,20 +163,21 @@
                  pop-place="'top'">Item Name</label>
 
 
-
-          <select class="js-example-basic-single form-control">
-            <option value="AL">Alabama</option>
-            <option value="WY">Wyoming</option>
-            <option value="WY">Wyoming</option>
-            <option value="WY">Wyoming</option>
-            <option value="WY">Wyoming</option>
+          <select class="js-example-basic-single form-control" id="allItemModel" ng-model="batch.itemName">
+            <option value="">Select Item</option>
+            <option ng-repeat="data in allItems" value="{{data.itemId}}">{{data.itemName}}</option>
           </select>
+          <script>
+            $(document).ready(function () {
+              $(".js-example-basic-single").select2();
+            });
+          </script>
 
         </div>
         <div class="col-lg-3">
           <label for="qty">Quantity</label>
 
-          <input  id="qtyModal" type="text" class="form-control initialError"
+          <input id="qtyModal" type="text" class="form-control initialError" ng-model="batch.qty"
                  placeholder="qty" ng-model="user.initials" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'"
                  ng-keypress="activeTitleSelect($event)">
@@ -189,7 +186,7 @@
           <label for="qty">Expire Date</label>
 
           <input id="expireDateModel" class="form-control initialError" type="text"
-                 placeholder="Click to Get Date " ng-model="dateFrom" notify-directive form="form"
+                 placeholder="Click to Get Date " ng-model="batch.expdate" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'">
         </div>
 
@@ -201,20 +198,21 @@
           <label for="qty">Buying Price</label>
 
           <input id="buyingPriceModel" type="text" class="form-control initialError"
-                 placeholder="Expire Date" ng-model="user.initials" notify-directive form="form"
+                 placeholder="Buying Price" ng-model="batch.buyingPrice" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'"
                  ng-keypress="activeTitleSelect($event)">
         </div>
         <div class="col-lg-4">
           <label for="qty">Selling Price</label>
 
-          <input id="sellingPriceModel" type="text" class="form-control initialError"
+          <input id="sellingPriceModel" type="text" class="form-control initialError" ng-model="batch.sellingPrice"
                  placeholder="Selling Price" ng-model="user.initials" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'"
                  ng-keypress="activeTitleSelect($event)">
         </div>
       </div>
       <br/>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary">Save</button>
@@ -225,13 +223,13 @@
 
 <script>
   jQuery('#datetimepicker').datetimepicker({
-    format: 'Y-m-d H:i',
+    format: 'Y-m-d ',
     lang: 'ru'
   });
 </script>
 <script>
   jQuery('#datetimepicker2').datetimepicker({
-    format: 'Y-m-d H:i',
+    format: 'Y-m-d ',
     lang: 'ru'
   });
 </script>
