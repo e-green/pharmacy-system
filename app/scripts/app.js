@@ -80,6 +80,11 @@ angular
         controller: 'ViewallbrandCtrl',
         controllerAs: 'viewAllBrand'
       })
+      .when('/viewAllMeasurement', {
+        templateUrl: 'views/viewallmeasurement.html',
+        controller: 'ViewallmeasurementCtrl',
+        controllerAs: 'viewAllMeasurement'
+      })
       .otherwise({
         redirectTo: '/'
       });
