@@ -1,10 +1,13 @@
 'use strict';
 
 var mainHost = "http://173.192.63.94:8080/pharmacy/api/v1";
-//var mainHost = "http://192.168.1.101:8080/web/gpstracker/v1";
+//var mainHost = "http://192.168.1.101:8080/web/api/v1";
 
 var host = {
-  brand: mainHost + '/brand'
+  brand: mainHost + '/brand',
+  measurement: mainHost + '/measurement',
+  item: mainHost + '/item',
+  batch: mainHost + '/batch',
 };
 
 
@@ -61,6 +64,21 @@ angular
         templateUrl: 'views/addbatch.html',
         controller: 'AddbatchCtrl',
         controllerAs: 'addBatch'
+      })
+      .when('/addItem', {
+        templateUrl: 'views/additem.html',
+        controller: 'AdditemCtrl',
+        controllerAs: 'addItem'
+      })
+      .when('/userManagement', {
+        templateUrl: 'views/usermanagement.html',
+        controller: 'UsermanagementCtrl',
+        controllerAs: 'userManagement'
+      })
+      .when('/viewAllBrand', {
+        templateUrl: 'views/viewallbrand.html',
+        controller: 'ViewallbrandCtrl',
+        controllerAs: 'viewAllBrand'
       })
       .otherwise({
         redirectTo: '/'

@@ -19,13 +19,13 @@
         <div class="col-lg-2" style="text-align: right;font-weight: bold;vertical-align: middle">
           Date
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
-                  id="itemName" notify-directive form="form" error-message="'Date here'"
+                  id="itemNameOn" notify-directive form="form" error-message="'Date here'"
                   pop-place="'top'">
             i
           </button>
         </div>
         <div class="col-lg-7">
-          <input id="datetimepicker" class="form-control initialError" type="text"
+          <input id="datetime" class="form-control initialError" type="text"
                  placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="batch.datetime" notify-directive
                  form="form" error-message="'Date here'">
 
@@ -51,7 +51,7 @@
             i
           </button>
 
-          <select class="js-example-basic-single form-control" id="allItem" ng-model="batch.itemName">
+          <select class="js-example-basic-single form-control" id="itemName" ng-model="batch.itemName">
             <option value="">Select Item</option>
             <option ng-repeat="data in allItems" value="{{data.itemId}}">{{data.itemName}}</option>
           </select>
@@ -80,7 +80,7 @@
                   pop-place="'top'">
             i
           </button>
-          <input id="datetimepicker2" class="form-control initialError" type="text"
+          <input id="expdate" class="form-control initialError" type="text"
                  placeholder="Click to Get Date " ng-model="batch.expdate" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'">
         </div>
@@ -222,13 +222,13 @@
 </div>
 
 <script>
-  jQuery('#datetimepicker').datetimepicker({
+  jQuery('#datetime').datetimepicker({
     format: 'Y-m-d ',
     lang: 'ru'
   });
 </script>
 <script>
-  jQuery('#datetimepicker2').datetimepicker({
+  jQuery('#expdate').datetimepicker({
     format: 'Y-m-d ',
     lang: 'ru'
   });

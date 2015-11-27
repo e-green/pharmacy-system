@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -21,6 +21,8 @@
 
   <script src="https://rawgit.com/jpillora/xdomain/gh-pages/dist/0.6/xdomain.js"
           slave="http://173.192.63.94:8080/web/api/proxy"></script>
+  <!--<script src="https://rawgit.com/jpillora/xdomain/gh-pages/dist/0.6/xdomain.js"-->
+          <!--slave="http://192.168.1.101:8080/web/api/proxy"></script>-->
   <!-- endbuild -->
 </head>
 <body ng-app="userAppApp">
@@ -49,8 +51,14 @@
 
         <ul class="nav navbar-nav">
           <li class="active"><a href="#/">Home</a></li>
-          <!--<li><a ng-href="#/about">About</a></li>-->
-          <li><a ng-href="#/add_user">Add Customer</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+               aria-expanded="false">User <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ng-href="#/add_user">Add User</a></li>
+              <li><a ng-href="#/userManagement">User Management</a></li>
+            </ul>
+          </li>
           <li><a ng-href="#/addBrand">Add Brand</a></li>
           <li><a ng-href="#/addMeasurement">Add Measurement</a></li>
           <li><a ng-href="#/addBatch">Add Batch</a></li>
@@ -87,15 +95,15 @@
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="lib/bower_components/jquery/dist/jquery.js"></script>
+<script src="lib/bower_components/angular/angular.js"></script>
+<script src="lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/bower_components/angular-animate/angular-animate.js"></script>
+<script src="lib/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="lib/bower_components/angular-resource/angular-resource.js"></script>
+<script src="lib/bower_components/angular-route/angular-route.js"></script>
+<script src="lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="lib/bower_components/angular-touch/angular-touch.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -114,6 +122,9 @@
 <script src="scripts/services/measurementservice.js"></script>
 <script src="scripts/controllers/additem.js"></script>
 <script src="scripts/services/itemservice.js"></script>
+<script src="scripts/controllers/usermanagement.js"></script>
+<script src="scripts/services/batchservice.js"></script>
+<script src="scripts/controllers/viewallbrand.js"></script>
 <!-- endbuild -->
 
 <script src="lib/js/notify.js"></script>
@@ -131,17 +142,28 @@
   });
 </script>
 
+<!--<script type="text/javascript">-->
+  <!--var specialKeys = new Array();-->
+  <!--specialKeys.push(13); //Backspace-->
+  <!--function IsNumeric(e) {-->
+    <!--var charCode = (e.which) ? e.which : event.keyCode-->
+    <!--alert(charCode);-->
+    <!--if (charCode > 31 && (charCode < 48 || charCode > 57))-->
+      <!--return false;-->
+    <!--return true;-->
+  <!--}-->
+  <!--;-->
+<!--</script>-->
+
 <script type="text/javascript">
   var specialKeys = new Array();
   specialKeys.push(13); //Backspace
   function IsNumeric(e) {
-    var charCode = (e.which) ? e.which : event.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-      return false;
-    return true;
+    var keyCode = e.which ? e.which : e.keyCode;
+    var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+    ret ? "none" : "inline" && alert("enter Correctly..");
+    return ret;
   }
-  ;
 </script>
-
 </body>
 </html>

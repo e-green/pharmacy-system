@@ -9,7 +9,7 @@
             <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
               NIC
               <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
-                      id="nameBtn" notify-directive form="form" error-message="'User name here chanakadesilva'"
+                      id="nameBtn" notify-directive form="form" error-message="'User NIC'"
                       pop-place="'top'">
                 i
               </button>
@@ -17,7 +17,7 @@
             <div class="col-lg-9">
               <input style="width: 200px;" type="text" class="form-control nameError" placeholder="Enter NIC"
                      id="name"
-                     ng-model="user.name" notify-directive form="form" error-message="'Enter valid name'"
+                     ng-model="user.name" notify-directive form="form" error-message="'Enter valid NIC'"
                      pop-place="'right'"
                      ng-keypress="activeInitialize($event)">
             </div>
@@ -27,13 +27,13 @@
             <div class="col-lg-3" style="text-align: right;font-weight: bold">
               Name
               <button type="button" class="btn btn-default btn-circle pull-right" id="initialBtn" notify-directive
-                      form="form" error-message="'User initials here chanakadesilva'" pop-place="'top'">i
+                      form="form" error-message="'User Name here'" pop-place="'top'">i
               </button>
             </div>
             <div class="col-lg-9">
               <input style="width: 200px;" id="initials" type="text" class="form-control initialError"
                      placeholder="Enter Name" ng-model="user.initials" notify-directive form="form"
-                     error-message="'Enter valid initials'" pop-place="'right'"
+                     error-message="'Enter valid name'" pop-place="'right'"
                      ng-keypress="activeTitleSelect($event)">
             </div>
           </div>
@@ -42,13 +42,13 @@
             <div class="col-lg-3" style="text-align: right;font-weight: bold">
               Password
               <button type="button" class="btn btn-default btn-circle pull-right" id="titleButton" notify-directive
-                      form="form" error-message="'User title here chanakadesilva'" pop-place="'top'">i
+                      form="form" error-message="'User password'" pop-place="'top'">i
               </button>
             </div>
             <div class="col-lg-9">
-              <input style="width: 200px;" id="initialssdf" type="text" class="form-control initialError"
+              <input style="width: 200px;" id="initialssdf" type="password" class="form-control initialError"
                      placeholder="**********" ng-model="user.initials" notify-directive form="form"
-                     error-message="'Enter valid initials'" pop-place="'right'"
+                     error-message="'Enter valid password'" pop-place="'right'"
                      ng-keypress="activeTitleSelect($event)">
             </div>
           </div>
@@ -56,13 +56,13 @@
           <div class="row pull-right" >
             <button id="reviewBtn" data-toggle="tooltip"
                     title="Review all the filled data before saving the document."
-                    class="btn btn-info" ng-click="openReviewModal()">Review
+                    class="btn btn-info btn-xs" ng-click="openReviewModal()">Review
             </button>
             <button id="saveBtn" data-toggle="tooltip" title="Save data without reviewing data at your own risk."
-                    class="btn btn-primary" ng-click="saveUser()">Save
+                    class="btn btn-primary btn-xs" ng-click="saveUser()">Save
             </button>
           </div>
-          <div style="height: 30px;"></div>
+          <div style="height: 20px;"></div>
           <hr>
           <div class="row">
             <div class="col-lg-3" style="text-align: left;font-weight: bold;">
@@ -73,6 +73,7 @@ Shehan Anushka Fernando
             </div>
             <div class="col-lg-9" style="text-align: left;font-weight: bold; margin-top: 10px;">
               <select class="js-example-basic-single form-control" id="allBrandId" ng-model="brand">
+                <option value="">user privileges</option>
                 <option value="1">Super User</option>
                 <option value="2">Master User</option>
                 <option value="3">Normal User</option>
@@ -112,12 +113,12 @@ Shehan Anushka Fernando
           <form >
             <table class="table table-bordered">
               <tr>
-                <th>Medicine
+                <th>NIC
                   <Name></Name>
                 </th>
-                <th>Brand</th>
-                <th>Min Qty</th>
-                <th>Measurement</th>
+                <th>Name</th>
+                <th>Last Visit</th>
+                <th>Options</th>
               </tr>
               <tr ng-repeat="data in allItems">
                 <td>{{data.itemName}}</td>
@@ -186,7 +187,6 @@ Shehan Anushka Fernando
           </div>
         </div>
         <br>
-
         <div class="row">
           <div class="col-lg-3" style="text-align: right;font-weight: bold">
             Title

@@ -125,10 +125,7 @@ angular.module('userAppApp')
      * Used ng-blur method.
      */
     $scope.activeInitialize = function (event) {
-      alert(event);
-      if(IsNumeric(event)){
-        document.getElementById("initials").focus();
-      };
+
       if (event.which === 13) {
         console.log("TAB activated");
         console.log(event);
