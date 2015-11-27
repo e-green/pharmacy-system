@@ -85,6 +85,11 @@ angular
         controller: 'ViewallmeasurementCtrl',
         controllerAs: 'viewAllMeasurement'
       })
+      .when('/viewAllBatch', {
+        templateUrl: 'views/viewallbatch.html',
+        controller: 'ViewallbatchCtrl',
+        controllerAs: 'viewAllBatch'
+      })
       .otherwise({
         redirectTo: '/'
       });

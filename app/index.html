@@ -77,7 +77,14 @@
               <li><a ng-href="#/viewAllMeasurement">View All Measurement</a></li>
             </ul>
           </li>
-          <li><a ng-href="#/addBatch">Add Batch</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+               aria-expanded="false">Batch <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ng-href="#/addBatch">Add Batch</a></li>
+              <li><a ng-href="#/viewAllBatch">View All Batch</a></li>
+            </ul>
+          </li>
           <li><a ng-href="#/addItem">Add Item</a></li>
         </ul>
       </div>
@@ -142,6 +149,7 @@
 <script src="scripts/services/batchservice.js"></script>
 <script src="scripts/controllers/viewallbrand.js"></script>
 <script src="scripts/controllers/viewallmeasurement.js"></script>
+<script src="scripts/controllers/viewallbatch.js"></script>
 <!-- endbuild -->
 
 <script src="lib/js/notify.js"></script>
