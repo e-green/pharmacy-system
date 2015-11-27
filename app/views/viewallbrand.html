@@ -1,4 +1,4 @@
-<div>
+<div ng-init="loadBrand()">
   <div class="panel panel-primary">
     <div class="panel-heading" style="color: black">
       <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
@@ -22,7 +22,7 @@
           </div>
           <div class="col-lg-3">
             <input id="itemName" type="text" class="form-control initialError"
-                   placeholder="Medicine Name" ng-model="item.itemName" notify-directive form="form"
+                   placeholder="Enter Brand Name" ng-model="item.itemName" notify-directive form="form"
                    error-message="'Enter valid medicine name'" pop-place="'right'"
                    ng-keypress="activeQty($event)">
           </div>
@@ -37,7 +37,7 @@
           </div>
           <div class="col-lg-3">
             <input id="minQtyd" type="text" class="form-control initialError"
-                   placeholder="Min Qty" ng-model="item.minQty" notify-directive form="form"
+                   placeholder="Enter Permanent Brand" ng-model="item.minQty" notify-directive form="form"
                    error-message="'Enter valid min qty'" pop-place="'right'"
                    ng-keypress="activeBrand($event)" onkeypress=" return IsNumeric(event);">
           </div>
@@ -51,7 +51,7 @@
           </div>
           <div class="col-lg-2">
             <input id="minQty" type="text" class="form-control initialError"
-                   placeholder="Min Qty" ng-model="item.minQty" notify-directive form="form"
+                   placeholder="Date" ng-model="item.minQty" notify-directive form="form"
                    error-message="'Enter valid min qty'" pop-place="'right'"
                    ng-keypress="activeBrand($event)" onkeypress=" return IsNumeric(event);">
           </div>
@@ -70,12 +70,13 @@
                 </th>
                 <th>Permanent Brand</th>
                 <th>Date</th>
+                <th>Edit</th>
               </tr>
-              <tr >
-                <td>brand 1</td>
-                <td>permanent Brand</td>
-                <td>2015/02/10</td>
-
+              <tr ng-repeat="data in allBrands">
+                <td>{{data.brandName}}</td>
+                <td>{{data.permanentBrand}}</td>
+                <td>{{data.datetime | date : format : timezone}}</td>
+                <td>edit</td>
               </tr>
             </table>
           </form>

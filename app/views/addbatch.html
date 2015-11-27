@@ -51,9 +51,9 @@
             i
           </button>
 
-          <select class="js-example-basic-single form-control" id="itemName" ng-model="batch.itemName">
+          <select class="js-example-basic-single form-control" id="itemName" ng-model="itemCombo">
             <option value="">Select Item</option>
-            <option ng-repeat="data in allItems" value="{{data.itemId}}">{{data.itemName}}</option>
+            <option ng-repeat="data in allItems" value="{{data}}">{{data.itemName}}</option>
           </select>
           <script>
             $(document).ready(function () {

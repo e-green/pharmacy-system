@@ -25,10 +25,15 @@ angular.module('userAppApp')
       }
       ;
     });
+    $scope.item={
+      "itemId":"",
+      "itemName":""
+    };
 
     $scope.batch = {
       "batchid": "",
       "datetime": null,
+      "itemId": "",
       "itemName": "",
       "qty": "",
       "expdate": "",
@@ -129,9 +134,21 @@ angular.module('userAppApp')
         return;
       }
       ;
-      if ($scope.batch && $scope.batch.itemName) {
-        console.log("$scope.batch.datetime :" + $scope.batch.datetime);
-        console.log("$scope.batch.expdate :" + $scope.batch.expdate);
+      //var itemModel =[];
+      console.log("$scope.item :" + $scope.itemCombo);
+      var itemModel = $scope.itemCombo;
+      var itemM =itemModel.split(",");
+      var itemModelId=itemM[0].split(":");
+      var itemModelName=itemM[1].split(":");
+      var id=itemModelId[1]
+      var name=itemModelName[1];
+      $scope.batch.itemId=id;
+      $scope.batch.itemName=name.replace(/"/g,'');
+
+      console.log("$scope.batch.itemId :"+$scope.batch.itemId);
+      console.log(" $scope.batch.itemName:"+ $scope.batch.itemName);
+      if ($scope.batch && $scope.batch.itemId) {
+
         batchService.addBatch($scope.batch).then(function (data) {
           if (data != null) {
             alert("added...");
@@ -139,6 +156,8 @@ angular.module('userAppApp')
           }
         });
       }
+
+
     };
 
     $scope.openReviewModalInAddBatch = function () {
