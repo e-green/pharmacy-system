@@ -1,135 +1,147 @@
 <div>
-  <div>
+  <div class="panel panel-primary">
     <div class="panel-heading" style="color: black">
+      <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+              notify-directive form="form"
+              error-message="'Add New User Management Form.This is the add new User Management form and you can add a new User Management using valid details. Make sure you are adding real data.'"
+              pop-place="'down'">
+        i
+      </button>
+      <h3 style="color: white" class="panel-title">User Management</h3>
+    </div>
 
-      <div class="row">
-        <div class="col-lg-5 pull-left">
-          <!--<div class="panel-body">-->
-          <div class="row">
-            <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
-              NIC
-              <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
-                      id="nameBtn" notify-directive form="form" error-message="'User NIC'"
-                      pop-place="'top'">
-                i
+
+    <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-5 pull-left">
+            <!--<div class="panel-body">-->
+            <div class="row">
+              <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+                NIC
+                <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                        id="nameBtn" notify-directive form="form" error-message="'User NIC'"
+                        pop-place="'top'">
+                  i
+                </button>
+              </div>
+              <div class="col-lg-9">
+                <input style="width: 200px;" type="text" class="form-control nameError" placeholder="Enter NIC"
+                       id="name"
+                       ng-model="user.name" notify-directive form="form" error-message="'Enter valid NIC'"
+                       pop-place="'right'"
+                       ng-keypress="activeInitialize($event)">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-lg-3" style="text-align: right;font-weight: bold">
+                Name
+                <button type="button" class="btn btn-default btn-circle pull-right" id="initialBtn" notify-directive
+                        form="form" error-message="'User Name here'" pop-place="'top'">i
+                </button>
+              </div>
+              <div class="col-lg-9">
+                <input style="width: 200px;" id="initials" type="text" class="form-control initialError"
+                       placeholder="Enter Name" ng-model="user.initials" notify-directive form="form"
+                       error-message="'Enter valid name'" pop-place="'right'"
+                       ng-keypress="activeTitleSelect($event)">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-lg-3" style="text-align: right;font-weight: bold">
+                Password
+                <button type="button" class="btn btn-default btn-circle pull-right" id="titleButton" notify-directive
+                        form="form" error-message="'User password'" pop-place="'top'">i
+                </button>
+              </div>
+              <div class="col-lg-9">
+                <input style="width: 200px;" id="initialssdf" type="password" class="form-control initialError"
+                       placeholder="**********" ng-model="user.initials" notify-directive form="form"
+                       error-message="'Enter valid password'" pop-place="'right'"
+                       ng-keypress="activeTitleSelect($event)">
+              </div>
+            </div>
+            <br>
+            <div class="row pull-right" >
+              <button id="reviewBtn" data-toggle="tooltip"
+                      title="Review all the filled data before saving the document."
+                      class="btn btn-info btn-xs" ng-click="openReviewModal()">Review
+              </button>
+              <button id="saveBtn" data-toggle="tooltip" title="Save data without reviewing data at your own risk."
+                      class="btn btn-primary btn-xs" ng-click="saveUser()">Save
               </button>
             </div>
-            <div class="col-lg-9">
-              <input style="width: 200px;" type="text" class="form-control nameError" placeholder="Enter NIC"
-                     id="name"
-                     ng-model="user.name" notify-directive form="form" error-message="'Enter valid NIC'"
-                     pop-place="'right'"
-                     ng-keypress="activeInitialize($event)">
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-lg-3" style="text-align: right;font-weight: bold">
-              Name
-              <button type="button" class="btn btn-default btn-circle pull-right" id="initialBtn" notify-directive
-                      form="form" error-message="'User Name here'" pop-place="'top'">i
-              </button>
-            </div>
-            <div class="col-lg-9">
-              <input style="width: 200px;" id="initials" type="text" class="form-control initialError"
-                     placeholder="Enter Name" ng-model="user.initials" notify-directive form="form"
-                     error-message="'Enter valid name'" pop-place="'right'"
-                     ng-keypress="activeTitleSelect($event)">
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-lg-3" style="text-align: right;font-weight: bold">
-              Password
-              <button type="button" class="btn btn-default btn-circle pull-right" id="titleButton" notify-directive
-                      form="form" error-message="'User password'" pop-place="'top'">i
-              </button>
-            </div>
-            <div class="col-lg-9">
-              <input style="width: 200px;" id="initialssdf" type="password" class="form-control initialError"
-                     placeholder="**********" ng-model="user.initials" notify-directive form="form"
-                     error-message="'Enter valid password'" pop-place="'right'"
-                     ng-keypress="activeTitleSelect($event)">
-            </div>
-          </div>
-          <br>
-          <div class="row pull-right" >
-            <button id="reviewBtn" data-toggle="tooltip"
-                    title="Review all the filled data before saving the document."
-                    class="btn btn-info btn-xs" ng-click="openReviewModal()">Review
-            </button>
-            <button id="saveBtn" data-toggle="tooltip" title="Save data without reviewing data at your own risk."
-                    class="btn btn-primary btn-xs" ng-click="saveUser()">Save
-            </button>
-          </div>
-          <div style="height: 20px;"></div>
-          <hr>
-          <div class="row">
-            <div class="col-lg-3" style="text-align: left;font-weight: bold;">
-              User :
-            </div>
-            <div class="col-lg-9">
-Shehan Anushka Fernando
-            </div>
-            <div class="col-lg-9" style="text-align: left;font-weight: bold; margin-top: 10px;">
-              <select class="js-example-basic-single form-control" id="allBrandId" ng-model="brand">
-                <option value="">user privileges</option>
-                <option value="1">Super User</option>
-                <option value="2">Master User</option>
-                <option value="3">Normal User</option>
-                <option value="4">Editer</option>
-              </select>
-              <script>
-                $(document).ready(function () {
-                  $(".js-example-basic-single").select2();
-                });
-              </script>
-            </div>
-            <div class="col-lg-3" style=" margin-top: 10px;">
-              <button class="btn-primary btn-xs">+</button>
-            </div>
-            <div style="height: 30px;"></div>
+            <div style="height: 20px;"></div>
             <hr>
-            <div class="row col-lg-12" >
-              <table class="table container" style="text-align: center">
-                <tr style="text-align: center">
-                  <th>Permisstion level
+            <div class="row">
+              <div class="col-lg-3" style="text-align: left;font-weight: bold;">
+                User :
+              </div>
+              <div class="col-lg-9">
+                Shehan Anushka Fernando
+              </div>
+              <div class="col-lg-9" style="text-align: left;font-weight: bold; margin-top: 10px;">
+                <select class="js-example-basic-single form-control" id="allBrandId" ng-model="brand">
+                  <option value="">user privileges</option>
+                  <option value="1">Super User</option>
+                  <option value="2">Master User</option>
+                  <option value="3">Normal User</option>
+                  <option value="4">Editer</option>
+                </select>
+                <script>
+                  $(document).ready(function () {
+                    $(".js-example-basic-single").select2();
+                  });
+                </script>
+              </div>
+              <div class="col-lg-3" style=" margin-top: 10px;">
+                <button class="btn-primary btn-xs">+</button>
+              </div>
+              <div style="height: 30px;"></div>
+              <hr>
+              <div class="row col-lg-12" >
+                <table class="table container" style="text-align: center">
+                  <tr style="text-align: center">
+                    <th>Permisstion level
+                      <Name></Name>
+                    </th>
+                    <th>Options</th>
+                  </tr>
+                  <tr ng-repeat="data in allItems" >
+                    <td style="text-align: center">{{data.itemName}}</td>
+                    <td>{{data.minQty}}</td>
+
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!--</div>-->
+          </div>
+          <div class="col-lg-7 pull-right">
+            <form >
+              <table class="table table-bordered">
+                <tr>
+                  <th>NIC
                     <Name></Name>
                   </th>
+                  <th>Name</th>
+                  <th>Last Visit</th>
                   <th>Options</th>
                 </tr>
-                <tr ng-repeat="data in allItems" >
-                  <td style="text-align: center">{{data.itemName}}</td>
+                <tr ng-repeat="data in allItems">
+                  <td>{{data.itemName}}</td>
                   <td>{{data.minQty}}</td>
-
+                  <td>{{data.desciption}}</td>
+                  <td>{{data.town}}</td>
                 </tr>
               </table>
-            </div>
+            </form>
           </div>
-
-          <!--</div>-->
-        </div>
-        <div class="col-lg-7 pull-right">
-          <form >
-            <table class="table table-bordered">
-              <tr>
-                <th>NIC
-                  <Name></Name>
-                </th>
-                <th>Name</th>
-                <th>Last Visit</th>
-                <th>Options</th>
-              </tr>
-              <tr ng-repeat="data in allItems">
-                <td>{{data.itemName}}</td>
-                <td>{{data.minQty}}</td>
-                <td>{{data.desciption}}</td>
-                <td>{{data.town}}</td>
-              </tr>
-            </table>
-          </form>
         </div>
       </div>
+
       <!--<button type="button" class="btn btn-default btn-circle pull-right" data-toggle="popover"-->
       <!--data-placement="bottom" title="Add New User Form" data-content="This is the add new user form and you can add-->
       <!--a new user using valid details. Make sure you are adding real data.">-->
@@ -142,7 +154,6 @@ Shehan Anushka Fernando
         <!--i-->
       <!--</button>-->
       <!--<h3 style="color: white" class="panel-title">User Management </h3>-->
-    </div>
 
   </div>
 </div>

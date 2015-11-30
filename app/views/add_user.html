@@ -7,11 +7,11 @@
         <!--<i class="glyphicon glyphicon-italic"></i>-->
       <!--</button>-->
       <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
-              notify-directive form="form" error-message="'Add New User Form.This is the add new user form and you can add a new user using valid details. Make sure you are adding real data.'"
+              notify-directive form="form" error-message="'New User Form.This is the add new user form and you can add a new user using valid details. Make sure you are adding real data.'"
               pop-place="'down'">
         i
       </button>
-      <h3 style="color: white" class="panel-title">Add New User</h3>
+      <h3 style="color: white" class="panel-title"> New User</h3>
     </div>
     <div class="panel-body">
       <div class="row">
@@ -23,7 +23,8 @@
             i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group">
+          <span class="input-group-addon" id="sizing-addon2"></span>
           <input style="width: 300px;" type="text" class="form-control nameError" placeholder="Enter name" id="name"
                  ng-model="user.name" notify-directive form="form" error-message="'Enter valid name'"
                  pop-place="'right'"
@@ -39,7 +40,8 @@
                   form="form" error-message="'User initials here chanakadesilva'" pop-place="'top'">i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group"  >
+          <span class="input-group-addon" ></span>
           <input style="width: 300px;" id="initials" type="text" class="form-control initialError"
                  placeholder="Enter name with initials" ng-model="user.initials" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'"
@@ -55,7 +57,8 @@
                   form="form" error-message="'User title here chanakadesilva'" pop-place="'top'">i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group">
+          <span class="input-group-addon" id="sizing-addon1"></span>
           <select style="width: 300px;" class="form-control titleError" ng-model="user.title" id="title"
                   ng-keypress="activeNic($event)" notify-directive form="form" error-message="'Select valid title'"
                   pop-place="'right'">
@@ -75,7 +78,8 @@
                   error-message="'User NIC here chanakadesilva'" pop-place="'top'">i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group" >
+          <span class="input-group-addon" id="sizing-addon4"></span>
           <input style="width: 300px;" type="text" class="form-control nicError"
                  placeholder="Enter NIC" id="nic" notify-directive form="form" error-message="'Enter valid NIC'"
                  pop-place="'right'"

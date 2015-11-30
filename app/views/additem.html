@@ -12,7 +12,7 @@
               pop-place="'down'">
         i
       </button>
-      <h3 style="color: white" class="panel-title">Add New Item</h3>
+      <h3 style="color: white" class="panel-title"> New Item</h3>
     </div>
     <br>
 
@@ -33,14 +33,15 @@
                  ng-keypress="activeQty($event)">
         </div>
 
-        <div class="col-lg-2"><label for="buyingPrice" style="text-align: right">Min Qty</label>
+        <div class="col-lg-2">
+          <label for="buyingPrice" style="text-align: right">Min Qty</label>
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
                   id="buyingPriceBtn3" notify-directive form="form" error-message="'Min Qty here'"
                   pop-place="'top'">
             i
           </button>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 ">
           <input id="minQty" type="text" class="form-control initialError"
                  placeholder="Min Qty" ng-model="item.minQty" notify-directive form="form"
                  error-message="'Enter valid min qty'" pop-place="'right'"
@@ -67,7 +68,6 @@
                 $(".js-example-basic-single").select2();
               });
             </script>
-
           </div>
           <div class="col-lg-3" style="text-align: right; margin-left: -50px;"><label
             for="buyingPrice">Measurement</label>
@@ -109,23 +109,26 @@
           <div class="col-lg-2"></div>
           <div class="col-lg-8">
             <form class="form-horizontal">
-              <table class="table table-bordered">
+              <table class="table table-bordered " style=".selected_row {
+    background-color: #AA0000 !important;
+    color: #FFFFFF;
+}">
                 <tr>
-                  <th>Medicine
-                    <Name></Name>
+                  <th>
+                    <Name>Medicine</Name>
                   </th>
                   <th>Min Qty</th>
                   <th>Brand</th>
                   <th>Measurement</th>
                 </tr>
-                <tr ng-repeat="data in  tableValue">
+                <tr ng-repeat="data in  tableValue" ng-click="getDatafromItemTable(data)" >
                   <td>{{data.itemName | limitTo:17}}</td>
                   <td>{{data.minQty | limitTo:10}}</td>
                   <td>{{data.brandName| limitTo:17 }}</td>
                   <td>{{data.measurement| limitTo:17}}</td>
-
                 </tr>
               </table>
+
             </form>
           </div>
           <div class="col-lg-2"></div>

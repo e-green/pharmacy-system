@@ -8,11 +8,11 @@
       <!--</button>-->
       <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
               notify-directive form="form"
-              error-message="'Add New Batch Form.This is the add new batch form and you can add a new batch using valid details. Make sure you are adding real data.'"
+              error-message="'New Batch Form.This is the add new batch form and you can add a new batch using valid details. Make sure you are adding real data.'"
               pop-place="'down'">
         i
       </button>
-      <h3 style="color: white" class="panel-title">Add New Batch</h3>
+      <h3 style="color: white" class="panel-title"> New Batch</h3>
     </div>
     <div class="panel-body">
       <div class="row">
@@ -24,7 +24,8 @@
             i
           </button>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon" ></span>
           <input id="datetime" class="form-control initialError" type="text"
                  placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="batch.datetime" notify-directive
                  form="form" error-message="'Date here'">
@@ -50,7 +51,6 @@
                   pop-place="'top'">
             i
           </button>
-
           <select class="js-example-basic-single form-control" id="itemName" ng-model="itemCombo">
             <option value="">Select Item</option>
             <option ng-repeat="data in allItems" value="{{data}}">{{data.itemName}}</option>
@@ -89,7 +89,7 @@
       <br/>
 
       <div class="row" style="margin-left: 15%">
-        <div class="col-lg-4">
+        <div class="col-lg-4 ">
           <label for="qty">Buying Price</label>
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
                   id="buyingPriceBtn" notify-directive form="form" error-message="'Buying price here'"
@@ -140,7 +140,6 @@
       <div class="modal-body">
         <div class="col-lg-2" style="text-align: right;font-weight: bold;vertical-align: middle">
           Date
-
         </div>
         <div class="col-lg-10">
           <input id="datetimepickerModel" class="form-control initialError" type="text" ng-model="batch.datetime"
@@ -157,7 +156,6 @@
         <!--form="form" error-message="'User initials here chanakadesilva'" pop-place="'top'">i-->
         <!--</button>-->
         <!--</div>-->
-
         <div class="col-lg-3">
           <label for="item" form="form" error-message="'Date here'"
                  pop-place="'top'">Item Name</label>

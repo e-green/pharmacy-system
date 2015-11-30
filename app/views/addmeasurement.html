@@ -12,7 +12,7 @@
               pop-place="'down'">
         i
       </button>
-      <h3 style="color: white" class="panel-title">Add New Measurement</h3>
+      <h3 style="color: white" class="panel-title"> New Measurement</h3>
     </div>
     <div class="panel-body">
       <div class="row">
@@ -24,7 +24,8 @@
             i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group">
+          <span class="input-group-addon" ></span>
           <input style="width: 300px;" type="text" class="form-control nameError" placeholder="Enter name" id="measurementName"
                  ng-model="measurement.measurementName" notify-directive form="form" error-message="'Enter Measurement'"
                  pop-place="'right'"

@@ -8,11 +8,11 @@
       <!--</button>-->
       <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
               notify-directive form="form"
-              error-message="'Add New Brand Form.This is the add new brand form and you can add a new brand using valid details. Make sure you are adding real data.'"
+              error-message="' New Brand Form.This is the add new brand form and you can add a new brand using valid details. Make sure you are adding real data.'"
               pop-place="'down'">
         i
       </button>
-      <h3 style="color: white" class="panel-title">Add New Brand</h3>
+      <h3 style="color: white" class="panel-title"> New Brand</h3>
     </div>
     <div class="panel-body">
       <div class="row">
@@ -24,7 +24,8 @@
             i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group" >
+          <span class="input-group-addon" id="sizing-addon2"></span>
           <input style="width: 300px;" type="text" class="form-control nameError" placeholder="Enter name" id="name"
                  ng-model="brand.brandName" notify-directive form="form" error-message="'Enter valid brand name'"
                  pop-place="'right'"
@@ -40,7 +41,8 @@
                   form="form" error-message="'Permanent Brand here '" pop-place="'top'">i
           </button>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 input-group">
+          <span class="input-group-addon "></span>
           <input style="width: 300px;" id="permanentBrand" type="text" class="form-control initialError" id="permanentBrand"
                  placeholder="Enter Permanent Brand " ng-model="brand.permanentBrand" notify-directive form="form"
                  error-message="'Enter valid initials'" pop-place="'right'"
