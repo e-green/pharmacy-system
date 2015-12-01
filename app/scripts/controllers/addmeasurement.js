@@ -65,9 +65,9 @@ angular.module('userAppApp')
       ;
       measurementService.addMeasurement($scope.measurement).then(function (data) {
         if (data != null) {
-          console.log("hi...");
           alert("Added Success...");
           $scope.measurement = [];
+          $('#reviewModal').modal('hide');
         };
         ;
       });
@@ -81,5 +81,5 @@ angular.module('userAppApp')
 
     $scope.openReviewModal = function () {
       $('#reviewModal').modal('show');
-    }
+    };
   });

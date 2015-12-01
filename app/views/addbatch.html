@@ -15,35 +15,12 @@
       <h3 style="color: white" class="panel-title"> New Batch</h3>
     </div>
     <div class="panel-body">
-      <div class="row">
-        <div class="col-lg-2" style="text-align: right;font-weight: bold;vertical-align: middle">
-          Date
-          <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
-                  id="itemNameOn" notify-directive form="form" error-message="'Date here'"
-                  pop-place="'top'">
-            i
-          </button>
-        </div>
-        <div class="col-lg-7 input-group">
-          <span class="input-group-addon" ></span>
-          <input id="datetime" class="form-control initialError" type="text"
-                 placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="batch.datetime" notify-directive
-                 form="form" error-message="'Date here'">
-
-        </div>
-      </div>
       <br>
 
-      <div class="row" style="margin-left: 15%">
-        <!--<div class="col-lg-3" style="text-align: right;font-weight: bold">-->
-        <!--Initials-->
-        <!--<button type="button" class="btn btn-default btn-circle pull-right" id="initialBtn" notify-directive-->
-        <!--form="form" error-message="'User initials here chanakadesilva'" pop-place="'top'">i-->
-        <!--</button>-->
-        <!--</div>-->
+      <div class="row">
 
-        <div class="col-lg-3">
-          <label for="item" form="form" error-message="'Date here'"
+        <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+          <label for="nameBtn" form="form" error-message="'Date here'"
                  pop-place="'top'">Item Name</label>
 
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
@@ -51,6 +28,9 @@
                   pop-place="'top'">
             i
           </button>
+        </div>
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon"></span>
           <select class="js-example-basic-single form-control" id="itemName" ng-model="itemCombo">
             <option value="">Select Item</option>
             <option ng-repeat="data in allItems" value="{{data}}">{{data.itemName}}</option>
@@ -61,60 +41,107 @@
             });
           </script>
         </div>
-        <div class="col-lg-3">
-          <label for="qty">Quantity</label>
+      </div>
+      <br>
+
+
+      <div class="row">
+        <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+          <label for="itemDate" form="form" error-message="'Date here'"
+                 pop-place="'top'">Date</label>
+
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
-                  id="qtyBtn" notify-directive form="form" error-message="'Quantity here'"
+                  id="itemDate" notify-directive form="form" error-message="'Date here'"
                   pop-place="'top'">
             i
           </button>
-          <input style="margin-left: 10px;" id="qty" type="text" class="form-control initialError"
-                 placeholder="qty" ng-model="batch.qty" notify-directive form="form"
-                 error-message="'Enter valid quantity'" pop-place="'right'"
-                 ng-keypress="activeTitleSelect($event)">
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon"></span>
+          <input id="datetime" class="form-control initialError" type="text"
+                 placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="datetime" notify-directive
+                 form="form" error-message="'Date here'">
+
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
           <label for="qty">Expire Date</label>
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
                   id="expireDate" notify-directive form="form" error-message="'Expire date here'"
                   pop-place="'top'">
             i
           </button>
+        </div>
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon"></span>
           <input id="expdate" class="form-control initialError" type="text"
                  placeholder="Click to Get Date " ng-model="batch.expdate" notify-directive form="form"
-                 error-message="'Enter valid initials'" pop-place="'right'">
+                 error-message="'Enter valid Expire Date'" pop-place="'right'">
+
         </div>
-
       </div>
-      <br/>
+      <br>
 
-      <div class="row" style="margin-left: 15%">
-        <div class="col-lg-4 ">
+      <div class="row">
+        <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+          <label for="qty">Quantity</label>
+          <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                  id="qtyBtn" notify-directive form="form" error-message="'Quantity here'"
+                  pop-place="'top'">
+            i
+          </button>
+        </div>
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon"></span>
+          <input id="qty" type="text" class="form-control initialError"
+                 placeholder="Qty" ng-model="batch.qty" notify-directive form="form"
+                 error-message="'Enter valid quantity'" pop-place="'right'"
+                 ng-keypress="activeTitleSelect($event)" onkeypress=" return IsNumeric(event);">
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
           <label for="qty">Buying Price</label>
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
                   id="buyingPriceBtn" notify-directive form="form" error-message="'Buying price here'"
                   pop-place="'top'">
             i
           </button>
-          <input id="buyingPrice" type="text" class="form-control initialError"
-                 placeholder="Expire Date" ng-model="batch.buyingPrice" notify-directive form="form"
-                 error-message="'Enter valid buying price'" pop-place="'right'"
-                 ng-keypress="activeTitleSelect($event)">
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon"></span>
+          <input id="buyingPrice" type="text" class="form-control initialError"
+                 placeholder="Enter Buying Price" ng-model="batch.buyingPrice" notify-directive form="form"
+                 error-message="'Enter valid buying price'" pop-place="'right'"
+                 ng-keypress="activeTitleSelect($event)" onkeypress=" return IsNumeric(event);">
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
           <label for="qty">Selling Price</label>
           <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
                   id="sellingPriceBtn" notify-directive form="form" error-message="'Selling price here'"
                   pop-place="'top'">
             i
           </button>
+        </div>
+        <div class="col-lg-7 input-group">
+          <span class="input-group-addon"></span>
           <input id="sellingPrice" type="text" class="form-control initialError"
                  placeholder="Selling Price" ng-model="batch.sellingPrice" notify-directive form="form"
                  error-message="'Enter valid selling price'" pop-place="'right'"
-                 ng-keypress="activeTitleSelect($event)">
+                 ng-keypress="activeTitleSelect($event)" onkeypress=" return IsNumeric(event);">
         </div>
       </div>
       <br>
+
 
       <div class="row pull-right" style="padding-right: 20px;">
         <button id="reviewBtn" data-toggle="tooltip" title="Review all the filled data before saving the document."
@@ -126,7 +153,10 @@
       </div>
     </div>
   </div>
+
+
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -135,99 +165,164 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add New Batch</h4>
+        <h4 class="modal-title" id="myModalLabel">New Batch</h4>
       </div>
       <div class="modal-body">
-        <div class="col-lg-2" style="text-align: right;font-weight: bold;vertical-align: middle">
-          Date
+
+        <div class="row">
+
+          <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+            <label for="nameBtn" form="form" error-message="'Date here'"
+                   pop-place="'top'">Item Name</label>
+
+            <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                    id="nameBtnModel" notify-directive form="form" error-message="'Item name here'"
+                    pop-place="'top'">
+              i
+            </button>
+          </div>
+          <div class="col-lg-7 input-group">
+            <span class="input-group-addon"></span>
+            <select class="js-example-basic-single form-control" id="itemNameModel" ng-model="itemCombo">
+              <option value="">Select Item</option>
+              <option ng-repeat="data in allItems" value="{{data}}">{{data.itemName}}</option>
+            </select>
+            <script>
+              $(document).ready(function () {
+                $(".js-example-basic-single").select2();
+              });
+            </script>
+          </div>
         </div>
-        <div class="col-lg-10">
-          <input id="datetimepickerModel" class="form-control initialError" type="text" ng-model="batch.datetime"
-                 placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="dateTo">
+        <br>
 
+
+        <div class="row">
+          <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+            <label for="itemDate" form="form" error-message="'Date here'"
+                   pop-place="'top'">Date</label>
+
+            <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                    id="itemDateModel" notify-directive form="form" error-message="'Date here'"
+                    pop-place="'top'">
+              i
+            </button>
+          </div>
+          <div class="col-lg-7 input-group">
+            <span class="input-group-addon"></span>
+            <input id="datetimeModel" class="form-control initialError" type="text"
+                   placeholder="Click to Get Date (YYYY-MM-DD HH:MM:SS)" ng-model="datetime" notify-directive
+                   form="form" error-message="'Date here'">
+          </div>
         </div>
-      </div>
-      <br>
+        <br>
 
-      <div class="row" style="margin-left: 15%">
-        <!--<div class="col-lg-3" style="text-align: right;font-weight: bold">-->
-        <!--Initials-->
-        <!--<button type="button" class="btn btn-default btn-circle pull-right" id="initialBtn" notify-directive-->
-        <!--form="form" error-message="'User initials here chanakadesilva'" pop-place="'top'">i-->
-        <!--</button>-->
-        <!--</div>-->
-        <div class="col-lg-3">
-          <label for="item" form="form" error-message="'Date here'"
-                 pop-place="'top'">Item Name</label>
-
-
-          <select class="js-example-basic-single form-control" id="allItemModel" ng-model="batch.itemName">
-            <option value="">Select Item</option>
-            <option ng-repeat="data in allItems" value="{{data.itemId}}">{{data.itemName}}</option>
-          </select>
-          <script>
-            $(document).ready(function () {
-              $(".js-example-basic-single").select2();
-            });
-          </script>
-
+        <div class="row">
+          <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+            <label for="qty">Expire Date</label>
+            <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                    id="expireDateModel" notify-directive form="form" error-message="'Expire date here'"
+                    pop-place="'top'">
+              i
+            </button>
+          </div>
+          <div class="col-lg-7 input-group">
+            <span class="input-group-addon"></span>
+            <input id="expdateModel" class="form-control initialError" type="text"
+                   placeholder="Click to Get Date " ng-model="batch.expdate" notify-directive form="form"
+                   error-message="'Enter valid initials'" pop-place="'right'">
+          </div>
         </div>
-        <div class="col-lg-3">
-          <label for="qty">Quantity</label>
+        <br>
 
-          <input id="qtyModal" type="text" class="form-control initialError" ng-model="batch.qty"
-                 placeholder="qty" ng-model="user.initials" notify-directive form="form"
-                 error-message="'Enter valid initials'" pop-place="'right'"
-                 ng-keypress="activeTitleSelect($event)">
+        <div class="row">
+          <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+            <label for="qty">Quantity</label>
+            <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                    id="qtyBtnModel" notify-directive form="form" error-message="'Quantity here'"
+                    pop-place="'top'">
+              i
+            </button>
+          </div>
+          <div class="col-lg-7 input-group">
+            <span class="input-group-addon"></span>
+            <input id="qtyModel" type="text" class="form-control initialError"
+                   placeholder="Qty" ng-model="batch.qty" notify-directive form="form"
+                   error-message="'Enter valid quantity'" pop-place="'right'"
+                   ng-keypress="activeTitleSelect($event)" onkeypress=" return IsNumeric(event);">
+          </div>
         </div>
-        <div class="col-lg-4">
-          <label for="qty">Expire Date</label>
+        <br>
 
-          <input id="expireDateModel" class="form-control initialError" type="text"
-                 placeholder="Click to Get Date " ng-model="batch.expdate" notify-directive form="form"
-                 error-message="'Enter valid initials'" pop-place="'right'">
+        <div class="row">
+          <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+            <label for="qty">Buying Price</label>
+            <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                    id="buyingPriceBtnModel" notify-directive form="form" error-message="'Buying price here'"
+                    pop-place="'top'">
+              i
+            </button>
+          </div>
+          <div class="col-lg-7 input-group">
+            <span class="input-group-addon"></span>
+            <input id="buyingPriceModel" type="text" class="form-control initialError"
+                   placeholder="Enter Buying Price" ng-model="batch.buyingPrice" notify-directive form="form"
+                   error-message="'Enter valid buying price'" pop-place="'right'"
+                   ng-keypress="activeTitleSelect($event)" onkeypress=" return IsNumeric(event);">
+          </div>
         </div>
+        <br>
 
-      </div>
-      <br/>
-
-      <div class="row" style="margin-left: 15%">
-        <div class="col-lg-4">
-          <label for="qty">Buying Price</label>
-
-          <input id="buyingPriceModel" type="text" class="form-control initialError"
-                 placeholder="Buying Price" ng-model="batch.buyingPrice" notify-directive form="form"
-                 error-message="'Enter valid initials'" pop-place="'right'"
-                 ng-keypress="activeTitleSelect($event)">
+        <div class="row">
+          <div class="col-lg-3" style="text-align: right;font-weight: bold;vertical-align: middle">
+            <label for="qty">Selling Price</label>
+            <button style="vertical-align: middle" type="button" class="btn btn-default btn-circle pull-right"
+                    id="sellingPriceBtnModel" notify-directive form="form" error-message="'Selling price here'"
+                    pop-place="'top'">
+              i
+            </button>
+          </div>
+          <div class="col-lg-7 input-group">
+            <span class="input-group-addon"></span>
+            <input id="sellingPriceModel" type="text" class="form-control initialError"
+                   placeholder="Selling Price" ng-model="batch.sellingPrice" notify-directive form="form"
+                   error-message="'Enter valid selling price'" pop-place="'right'"
+                   ng-keypress="activeTitleSelect($event)" onkeypress=" return IsNumeric(event);">
+          </div>
         </div>
-        <div class="col-lg-4">
-          <label for="qty">Selling Price</label>
+        <br>
 
-          <input id="sellingPriceModel" type="text" class="form-control initialError" ng-model="batch.sellingPrice"
-                 placeholder="Selling Price" ng-model="user.initials" notify-directive form="form"
-                 error-message="'Enter valid initials'" pop-place="'right'"
-                 ng-keypress="activeTitleSelect($event)">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" ng-click="saveBatch()">Save</button>
         </div>
-      </div>
-      <br/>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
+  <script>
+    jQuery('#datetime').datetimepicker({
+      format: 'Y-m-d',
+      lang: 'ru'
+    });
+  </script>
+  <script>
+    jQuery('#expdate').datetimepicker({
+      format: 'Y-m-d',
+      lang: 'ru'
+    });
+  </script>
+  <script>
+    jQuery('#datetimeModel').datetimepicker({
+      format: 'Y-m-d',
+      lang: 'ru'
+    });
+  </script>
+  <script>
+    jQuery('#expdateModel').datetimepicker({
+      format: 'Y-m-d',
+      lang: 'ru'
+    });
+  </script>
 </div>
 
-<script>
-  jQuery('#datetime').datetimepicker({
-    format: 'Y-m-d ',
-    lang: 'ru'
-  });
-</script>
-<script>
-  jQuery('#expdate').datetimepicker({
-    format: 'Y-m-d ',
-    lang: 'ru'
-  });
-</script>
+

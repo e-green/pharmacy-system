@@ -90,6 +90,11 @@ angular
         controller: 'ViewallbatchCtrl',
         controllerAs: 'viewAllBatch'
       })
+      .when('/viewAllItem', {
+        templateUrl: 'views/viewallitem.html',
+        controller: 'ViewallitemCtrl',
+        controllerAs: 'viewAllItem'
+      })
       .otherwise({
         redirectTo: '/'
       });

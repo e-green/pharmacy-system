@@ -76,7 +76,9 @@
                 <td>{{data.brandName}}</td>
                 <td>{{data.permanentBrand}}</td>
                 <td>{{data.datetime | date : format : timezone}}</td>
-                <td>edit</td>
+                <td>
+                  <button class="btn-info btn-xs" ng-click="showUpdateViewInBrand(data)"> Edit</button>
+                </td>
               </tr>
             </table>
           </form>
@@ -85,7 +87,47 @@
       </div>
 
     </div>
-
   </div>
-</div>
+
+  <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Brand</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-2" style="text-align: right;font-weight: bold;vertical-align: middle">
+              Brand Name
+            </div>
+            <div class="col-lg-10">
+              <input style="width: 300px;" type="text" class="form-control nameError" placeholder="Enter name"
+                     id="name1"
+                     ng-model="brand.brandName" notify-directive
+                     ng-keypress="activeInitialize($event)">
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2" style="text-align: right;font-weight: bold">
+              Permanent Brand
+            </div>
+            <div class="col-lg-10">
+              <input style="width: 300px;" id="initials1" type="text" class="form-control initialError"
+                     placeholder="Enter name with initials" ng-model="brand.permanentBrand"
+                >
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" ng-click="editBrand()">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

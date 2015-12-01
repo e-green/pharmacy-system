@@ -12,8 +12,8 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/bootstrap.min.css" />
-  <link rel="stylesheet" href="styles/mainHtml.css" />
+  <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+  <link rel="stylesheet" href="styles/mainHtml.css"/>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/tooltipster.css">
   <link rel="stylesheet" href="styles/jquery.datetimepicker.css">
@@ -21,9 +21,9 @@
   <link rel="stylesheet" href="styles/select2-bootstrap.css">
   <style>
     .selected {
-      background-color:black;
-      color:white;
-      font-weight:bold;
+      background-color: black;
+      color: white;
+      font-weight: bold;
     }
   </style>
 
@@ -40,68 +40,8 @@
   your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<!--<div class="header">-->
-<!--<div class="navbar navbar-default" role="navigation">-->
-<!--<div class="container">-->
-<!--<div class="navbar-header">-->
 
-<!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">-->
-<!--<span class="sr-only">Toggle navigation</span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--</button>-->
-
-<!--<a class="navbar-brand" href="#/">userApp</a>-->
-<!--</div>-->
-
-<!--<div class="collapse navbar-collapse" id="js-navbar-collapse">-->
-
-<!--<ul class="nav navbar-nav">-->
-<!--<li class="active"><a href="#/">Home</a></li>-->
-<!--<li class="dropdown">-->
-<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-<!--aria-expanded="false">User <span class="caret"></span></a>-->
-<!--<ul class="dropdown-menu">-->
-<!--<li><a ng-href="#/add_user">Add User</a></li>-->
-<!--<li><a ng-href="#/userManagement">User Management</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li class="dropdown">-->
-<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-<!--aria-expanded="false">Brand <span class="caret"></span></a>-->
-<!--<ul class="dropdown-menu">-->
-
-<!--<li><a ng-href="#/addBrand">Add Brand</a></li>-->
-<!--<li><a ng-href="#/viewAllBrand">View All Brand</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li class="dropdown">-->
-<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-<!--aria-expanded="false">Measurement <span class="caret"></span></a>-->
-<!--<ul class="dropdown-menu">-->
-
-<!--<li><a ng-href="#/addMeasurement">Add Measurement</a></li>-->
-<!--<li><a ng-href="#/viewAllMeasurement">View All Measurement</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li class="dropdown">-->
-<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-<!--aria-expanded="false">Batch <span class="caret"></span></a>-->
-<!--<ul class="dropdown-menu">-->
-<!--<li><a ng-href="#/addBatch">Add Batch</a></li>-->
-<!--<li><a ng-href="#/viewAllBatch">View All Batch</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li><a ng-href="#/addItem">Add Item</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="MainCtrl">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -111,13 +51,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#/">Pharmacy System</a>
+      <a class="navbar-brand" href="#/" ng-click="indexReload()">Pharmacy System</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a ng-href="#/addBrand" ng-click="indexBrand()">Brand</a></li>
+        <li><a ng-href="#/addMeasurement" ng-click="indexMeasurement()">Measurement</a></li>
+        <li><a ng-href="#/addItem" ng-click="indexItems()">Items</a></li>
+        <li><a ng-href="#/addBatch" ng-click="indexBatch()">Batch</a></li>
+        <li><a ng-href="#/add_user" ng-click="indexUser()">User</a></li>
         <li><a href="#">Help</a></li>
       </ul>
       <form class="navbar-form navbar-right">
@@ -129,34 +71,42 @@
 
 <div class="container">
   <div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-      <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-      <li><a ng-href="#/addBrand">New Brand</a></li>
-      <li><a ng-href="#/viewAllBrand">View All Brand</a></li>
 
-    </ul>
     <ul class="nav nav-sidebar">
-      <li><a ng-href="#/addMeasurement">New Measurement</a></li>
-      <li><a ng-href="#/viewAllMeasurement">View All Measurement</a></li>
+      <li class="active"><a href="#/">Overview <span class="sr-only">(current)</span></a></li>
     </ul>
-    <ul class="nav nav-sidebar">
-      <li><a ng-href="#/addItem">Add Item</a></li>
-    </ul>
-    <ul class="nav nav-sidebar">
-      <li><a ng-href="#/addBatch">New Batch</a></li>
-      <li><a ng-href="#/viewAllBatch">View All Batch</a></li>
-    </ul>
-    <!--<ul class="nav nav-sidebar">-->
-    <!--<li><a href="">Nav item</a></li>-->
-    <!--<li><a href="">Nav item again</a></li>-->
-    <!--<li><a href="">One more nav</a></li>-->
-    <!--<li><a href="">Another nav item</a></li>-->
-    <!--<li><a href="">More navigation</a></li>-->
-    <!--</ul>-->
-    <ul class="nav nav-sidebar">
-      <li><a href="#/add_user">New User</a></li>
-      <li><a href="#/userManagement">User Management</a></li>
-    </ul>
+    <div id="brand">
+      <ul class="nav nav-sidebar">
+        <li><a ng-href="#/addBrand">New Brand</a></li>
+        <li><a ng-href="#/viewAllBrand">View All Brand</a></li>
+      </ul>
+    </div>
+    <div id="measurement">
+      <ul class="nav nav-sidebar">
+        <li><a ng-href="#/addMeasurement">New Measurement</a></li>
+        <li><a ng-href="#/viewAllMeasurement">View All Measurement</a></li>
+      </ul>
+    </div>
+    <div id="item">
+      <ul class="nav nav-sidebar">
+        <li><a ng-href="#/addItem">New Item</a></li>
+        <li><a ng-href="#/viewAllItem">View All Items</a></li>
+      </ul>
+    </div>
+    <div id="batch">
+      <ul class="nav nav-sidebar">
+        <li><a ng-href="#/addBatch">New Batch</a></li>
+        <li><a ng-href="#/viewAllBatch">View All Batch</a></li>
+      </ul>
+    </div>
+
+    <div id="user">
+      <ul class="nav nav-sidebar">
+        <li><a ng-href="#/add_user">New User</a></li>
+        <li><a ng-href="#/userManagement">User Management</a></li>
+      </ul>
+    </div>
+
   </div>
 
 </div>
@@ -167,7 +117,8 @@
 
 <div class="footer">
   <div class="container" style="text-align: center">
-    <a href="http://egreen.io/"><p><span class="glyphicon glyphicon-heart"></span> powered by E-Green</p></a>
+    <a href="http://egreen.io/"><p><span class="glyphicon glyphicon-object-align-horizontal"></span> powered by E-Green
+    </p></a>
   </div>
 </div>
 
@@ -198,6 +149,15 @@
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
+<script src="lib/bower_components/jquery/dist/jquery.js"></script>
+<script src="lib/bower_components/angular/angular.js"></script>
+<script src="lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/bower_components/angular-animate/angular-animate.js"></script>
+<script src="lib/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="lib/bower_components/angular-resource/angular-resource.js"></script>
+<script src="lib/bower_components/angular-route/angular-route.js"></script>
+<script src="lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="lib/bower_components/angular-touch/angular-touch.js"></script>
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
@@ -219,6 +179,7 @@
 <script src="scripts/controllers/viewallbrand.js"></script>
 <script src="scripts/controllers/viewallmeasurement.js"></script>
 <script src="scripts/controllers/viewallbatch.js"></script>
+<script src="scripts/controllers/viewallitem.js"></script>
 <!-- endbuild -->
 
 <script src="lib/js/notify.js"></script>

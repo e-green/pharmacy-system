@@ -8,12 +8,22 @@
  * Controller of the userAppApp
  */
 angular.module('userAppApp')
-  .controller('AddbatchCtrl', function ($scope, itemService, batchService) {
+  .controller('AddbatchCtrl', function ($scope, itemService, batchService, $route, $timeout) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    $scope.batch = {
+      "batchid": "",
+      "datetime": null,
+      "itemId": "",
+      "itemName": "",
+      "qty": "",
+      "expdate": "",
+      "buyingPrice": "",
+      "sellingPrice": ""
+    };
     $scope.form = {
       errors: []
     };
@@ -25,26 +35,16 @@ angular.module('userAppApp')
       }
       ;
     });
-    $scope.item={
-      "itemId":"",
-      "itemName":""
-    };
-
-    $scope.batch = {
-      "batchid": "",
-      "datetime": null,
+    $scope.item = {
       "itemId": "",
-      "itemName": "",
-      "qty": "",
-      "expdate": "",
-      "buyingPrice": "",
-      "sellingPrice": ""
+      "itemName": ""
     };
 
 
-    $(document).ready(function () {
-      $('[data-toggle="popover"]').popover();
-    });
+
+      $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+      });
 
     function isInt(value) {
       return !isNaN(value) && (function (x) {
@@ -53,9 +53,14 @@ angular.module('userAppApp')
     };
 
     $scope.saveBatch = function () {
+      //console.log("$scope.datetime :", );
+      $scope.batch.datetime=document.getElementById("datetime").value;
+      $scope.batch.expdate=document.getElementById("expdate").value;
+
+
       $scope.form.errors = [];
 
-      if ($scope.batch.datetime == '') {
+      if ($scope.batch.datetime == null) {
         console.log("Error");
         $scope.form.errors.push("Error");
         $('#datetime').popover();
@@ -91,7 +96,7 @@ angular.module('userAppApp')
       } else {
         $('#qty').popover('hide');
       }
-      if ($scope.batch.expdate == '') {
+      if ($scope.batch.expdate == null) {
         console.log("Error");
         $scope.form.errors.push("Error");
         $('#expdate').popover();
@@ -137,24 +142,33 @@ angular.module('userAppApp')
       //var itemModel =[];
       console.log("$scope.item :" + $scope.itemCombo);
       var itemModel = $scope.itemCombo;
-      var itemM =itemModel.split(",");
-      var itemModelId=itemM[0].split(":");
-      var itemModelName=itemM[1].split(":");
-      var id=itemModelId[1]
-      var name=itemModelName[1];
-      $scope.batch.itemId=id;
-      $scope.batch.itemName=name.replace(/"/g,'');
+      var itemM = itemModel.split(",");
+      var itemModelId = itemM[0].split(":");
+      var itemModelName = itemM[1].split(":");
+      var id = itemModelId[1]
+      var name = itemModelName[1];
+      $scope.batch.itemId = id;
+      $scope.batch.itemName = name.replace(/"/g, '');
 
-      console.log("$scope.batch.itemId :"+$scope.batch.itemId);
-      console.log(" $scope.batch.itemName:"+ $scope.batch.itemName);
-      if ($scope.batch && $scope.batch.itemId) {
-
+      //console.log("$scope.batch.itemId :" + $scope.batch.itemId);
+      //console.log(" $scope.batch.itemName:" + $scope.batch.itemName);
+      //console.log(" $scope.batch.expdate:" + $scope.batch.expdate);
+      console.log(" $scope.batch 2", $scope.batch);
+      if ($scope.batch.datetime && $scope.batch.expdate != null) {
         batchService.addBatch($scope.batch).then(function (data) {
           if (data != null) {
-            alert("added...");
+            alert("Added Success...");
             $scope.batch = [];
+            $scope.batch.itemName = null;
+            $('#reviewModal').modal('hide');
+            $timeout(function () {
+              $route.reload();
+            }, 3000);
           }
+          ;
         });
+      } else {
+        alert("Please Fill Data Correctly...");
       }
 
 

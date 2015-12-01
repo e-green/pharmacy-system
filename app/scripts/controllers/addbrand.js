@@ -68,7 +68,8 @@ angular.module('userAppApp')
       ;
       brandService.addBrand($scope.brand).then(function (data) {
         if (data != null) {
-          alert("added");
+          alert("Added Success...");
+          $('#reviewModal').modal('hide');
           $scope.brand = {
             "brandId": "",
             "brandName": "",
