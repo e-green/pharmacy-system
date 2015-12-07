@@ -95,6 +95,16 @@ angular
         controller: 'ViewallitemCtrl',
         controllerAs: 'viewAllItem'
       })
+      .when('/addOrder', {
+        templateUrl: 'views/addorder.html',
+        controller: 'AddorderCtrl',
+        controllerAs: 'addOrder'
+      })
+      .when('/addCustomer', {
+        templateUrl: 'views/addcustomer.html',
+        controller: 'AddcustomerCtrl',
+        controllerAs: 'addCustomer'
+      })
       .otherwise({
         redirectTo: '/'
       });

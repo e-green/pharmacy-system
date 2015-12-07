@@ -19,11 +19,18 @@
   <link rel="stylesheet" href="styles/jquery.datetimepicker.css">
   <link rel="stylesheet" href="styles/select2.css">
   <link rel="stylesheet" href="styles/select2-bootstrap.css">
+  <!--<style>-->
+    <!--.selected {-->
+      <!--background-color: black;-->
+      <!--color: white;-->
+      <!--font-weight: bold;-->
+    <!--}-->
+  <!--</style>-->
   <style>
-    .selected {
-      background-color: black;
-      color: white;
-      font-weight: bold;
+    .pane {
+      display: inline-block;
+      overflow-y: scroll;
+      max-height:300px;
     }
   </style>
 
@@ -107,6 +114,12 @@
       </ul>
     </div>
 
+    <div id="no">
+      <ul class="nav nav-sidebar">
+        <li><a ng-href="#/addOrder">New Order</a></li>
+      </ul>
+    </div>
+
   </div>
 
 </div>
@@ -180,6 +193,8 @@
 <script src="scripts/controllers/viewallmeasurement.js"></script>
 <script src="scripts/controllers/viewallbatch.js"></script>
 <script src="scripts/controllers/viewallitem.js"></script>
+<script src="scripts/controllers/addorder.js"></script>
+<script src="scripts/controllers/addcustomer.js"></script>
 <!-- endbuild -->
 
 <script src="lib/js/notify.js"></script>
